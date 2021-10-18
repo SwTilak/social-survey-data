@@ -5,7 +5,7 @@ import plotly.express as px
 import csv 
 import plotly.graph_objects as go
 st.title("Genral Social Survey data analytics web app")
-gss_data=pd.read_csv("C:\\Users\\swati\\Downloads\\gss2016.csv")
+gss_data=pd.read_csv("gss2016.csv")
 gss_data_filtered=gss_data[['race','sex','age','degree','wrkstat','income','happy']]
 gss_data_filtered.head()
 st.write("")
