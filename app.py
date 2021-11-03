@@ -4,7 +4,8 @@ import PIL as Image
 import plotly.express as px
 import csv 
 import plotly.graph_objects as go
-st.title("Genral Social Survey data analytics web app")
+st.title("Genral Social Survey 2016")
+st.markdown("Analysis of impact of different life aspects on emotions ")
 gss_data=pd.read_csv("gss2016.csv")
 gss_data_filtered=gss_data[['race','sex','age','degree','wrkstat','income','happy']]
 gss_data_filtered.head()
@@ -13,7 +14,7 @@ st.write("")
 st.write("")
 st.write("")
 
-st.header("GSS 2016 datset filtered on sex,Race,Age,Degree,Wrkstat,Income and Happiness")
+st.header("GSS 2016 Datset filtered on Sex,Race,Age,Degree,Work status,Income and Happiness")
 st.dataframe(gss_data_filtered)
 
 columns={'race','sex','age','degree','wrkstat','income','happy'}
@@ -21,7 +22,7 @@ st.write("")
 st.write("")
 st.write("")
 st.write("")
-st.header("dataset aggregated by count")
+st.header("Dataset Aggregated by Count")
 pick_columns=st.selectbox("Count by column:" , list(columns))
 gss_data_filtered["Count"]=0
 gss_data_filtered_count=gss_data_filtered.groupby(pick_columns).count()
@@ -33,7 +34,7 @@ st.write("")
 st.write("")
 st.write("")
 st.write("")
-st.header("dataset correlation between columns")
+st.header(" Correlation between different aspects")
 
 multi_select_column=st.multiselect("columns for correlation:",list(columns),default=["sex"])
 
@@ -43,7 +44,7 @@ st.dataframe(multi_select_filtered)
 st.write("")
 st.write("")
 st.write("")
-st.header("dataset correlation between columns multi select")
+st.header("correlation between columns (multi select)")
 
 
 multiselectcolumn2=st.multiselect("multi select column group by:",list(columns),default=["sex"])
